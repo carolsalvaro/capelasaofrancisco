@@ -205,6 +205,17 @@ section[id]{scroll-margin-top:calc(var(--bar-h) + 10px)}
   background:#fbf1e1;border:1px solid var(--line);border-radius:15px;padding:16px;
   display:grid;grid-template-columns:1fr 1fr;gap:9px 18px
 }
+.prizes div{display:flex;align-items:center;gap:6px}
+.critter{font-size:18px;display:inline-block;transform-origin:70% 90%;animation:critter-bounce 2.2s ease-in-out infinite}
+@keyframes critter-bounce{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-5px) rotate(-6deg)}}
+@keyframes critter-wiggle{0%,100%{transform:rotate(0deg)}25%{transform:rotate(10deg)}75%{transform:rotate(-10deg)}}
+@keyframes critter-peck{0%,100%{transform:translateY(0) rotate(0deg)}30%{transform:translateY(2px) rotate(-8deg)}60%{transform:translateY(0) rotate(4deg)}}
+.prizes div:nth-child(1) .critter{animation:critter-bounce 2.3s ease-in-out infinite}
+.prizes div:nth-child(2) .critter{animation:critter-wiggle 1.9s ease-in-out infinite}
+.prizes div:nth-child(3) .critter{animation:critter-peck 1.6s ease-in-out infinite .2s}
+.prizes div:nth-child(4) .critter{animation:critter-wiggle 2.1s ease-in-out infinite .1s}
+.critter-static{animation:none!important}
+@media (prefers-reduced-motion: reduce){ .critter{animation:none} }
 .ticket-img{border-radius:13px;border:1px solid var(--line);box-shadow:0 10px 24px rgba(55,33,15,.10)}
 
 .history-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:26px;align-items:center}
@@ -278,8 +289,8 @@ footer strong{font:700 17px Georgia,serif}
   .action-info .btn{width:100%}
 
   .history-grid{grid-template-columns:1fr;gap:18px}
-  .history-photos{grid-template-columns:1fr}
-  .photo{height:225px}
+  .history-photos{grid-template-columns:1fr 1fr}
+  .photo{height:140px}
 
   .visit-card{grid-template-columns:1fr;padding:22px 18px}
   .visit-art{order:-1;min-height:205px}
@@ -291,18 +302,22 @@ footer strong{font:700 17px Georgia,serif}
   .mass-panel .mass-text b{font-size:18px}
   .hero-cta{font-size:15px;padding:15px 16px}
 
-  .countdown-inner{padding:8px 10px;gap:8px}
-  .countdown-msg .txt b{font-size:13px}
-  .countdown-msg .ico{font-size:21px}
-  .cd-unit{min-width:38px;padding:4px 3px}
-  .cd-unit span{font-size:15px}
-  .countdown-cta{padding:9px 12px;font-size:12px}
+  .countdown-inner{padding:6px 10px;gap:6px}
+  .countdown-msg{flex:1 1 auto;min-width:0}
+  .countdown-msg .txt{min-width:0;overflow:hidden}
+  .countdown-msg .txt b{font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .countdown-msg .txt span{display:none}
+  .countdown-msg .ico{font-size:18px}
+  .cd-unit{min-width:38px;padding:3px 2px}
+  .cd-unit span{font-size:14px}
+  .cd-unit small{font-size:7px}
+  .countdown-cta{padding:7px 10px;font-size:11px;flex:0 0 auto}
 }
 @media(max-width:430px){
   .food-grid{grid-template-columns:1fr 1fr;gap:9px}
   .food-photo{height:132px}
   .food-photo span{font-size:11px;padding:5px 6px}
-  .countdown-clock{order:3;width:100%;justify-content:center}
+  .countdown-clock{order:3;width:100%;justify-content:center;margin-top:2px}
   .countdown-cta{order:2}
 }
 </style>
@@ -435,11 +450,11 @@ footer strong{font:700 17px Georgia,serif}
           <div class="meta-row">🎟️ <strong>Sorteio:</strong>&nbsp;03 de outubro</div>
           <div class="meta-row">💰 <strong>Valor:</strong>&nbsp;R$ 5,00 o bilhete</div>
           <div class="prizes">
-            <div><strong>1º:</strong> Um carneiro</div>
-            <div><strong>2º:</strong> Um porco de 40 kg</div>
-            <div><strong>3º:</strong> Duas galinhas</div>
-            <div><strong>4º:</strong> Um peru</div>
-            <div><strong>5º:</strong> Uma airfryer</div>
+            <div><strong>1º:</strong> Um carneiro <span class="critter" aria-hidden="true">🐑</span></div>
+            <div><strong>2º:</strong> Um porco de 40 kg <span class="critter" aria-hidden="true">🐖</span></div>
+            <div><strong>3º:</strong> Duas galinhas <span class="critter" aria-hidden="true">🐔</span></div>
+            <div><strong>4º:</strong> Um peru <span class="critter" aria-hidden="true">🦃</span></div>
+            <div><strong>5º:</strong> Uma airfryer <span class="critter critter-static" aria-hidden="true">🔌</span></div>
           </div>
           <a class="btn btn-green" href="https://wa.me/5548991920045?text=Ol%C3%A1%21%20Quero%20participar%20da%20A%C3%A7%C3%A3o%20entre%20Amigos%20da%20Festa%20de%20S%C3%A3o%20Francisco." target="_blank" rel="noopener">Quero participar</a>
         </div>
